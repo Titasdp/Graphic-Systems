@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Aula PL2 - polígonos (vértices de cor fixa - relativa à posição)</title>
+	<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=EAeN71Ct-F6lCWLPHKb6QWZHGCU84XuoWIaAjdJpnuAmRKx9nd4hGGFZappjh0OqtOzMhC2PeIackjPiblnFWkfEZS9doAP9dPEVnq8CXxoBSY8310SItw7TI7JhqzbxkRomNduGoGytJFtNWNdoUYB5OedMwoKdmKhJee17-Vc" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9tb29kbGUuZXNtYWQuaXBwLnB0L21kbDE5MjAvcGx1Z2luZmlsZS5waHAvMTA2MjcvbW9kX2ZvbGRlci9jb250ZW50LzAvcG9saWdvbm80Lmh0bWw_Zm9yY2Vkb3dubG9hZD0x"/><script id="vertex-shader" type="x-shader/x-vertex">
+		attribute	vec4	vPosition;
+		void main()
+		{
+			gl_Position=vPosition;
+		}
+	</script>
+	<script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+		uniform vec4 u_color; // variável "uniform"
+		void main()
+		{
+			gl_FragColor = u_color;
+		}
+	</script>
+
+	<script type="text/javascript" src="Common/webgl-utils.js"></script>
+	<script type="text/javascript" src="Common/initShaders.js"></script>
+	<script type="text/javascript" src="Common/MV.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+<body>
+
+	<h1>Polygon - exercise 4</h1>
+<canvas id="gl-canvas" width="512" height="512" tabindex="1">
+	Oops... O browser não suporta o elemento canvas HTML5
+</canvas>
+
+<form>
+	x Centro: 			 <input id="xCentro" type="text" pattern="[-+]?[0-9]+(\.[0-9]+)?" value="0.0"/> <br/>
+	y Centro: 			 <input id="yCentro" type="text" pattern="[-+]?[0-9]+(\.[0-9]+)?" value="0.0"/> <br/>
+	Raio: 			 <input id="raio" type="text" pattern="[0-9]+(\.[0-9]+)?" value="0.5"/> <br/>
+	Número Pontos:   <input id="n" type="text" pattern="[0-9]+" value="4"/> <br/>
+	<input type="button" value="Calcular" onclick="desenhaPoligonos()"/>
+</form>
+</body>
+</html>

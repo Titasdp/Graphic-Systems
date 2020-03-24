@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>2D Poligono</title>
+	<script id="vertex-shader" type="x-shader/x-vertex">
+		attribute	vec4	vPosition;
+
+		void main()
+		{
+			gl_Position=vPosition;
+		}
+	</script>
+	<script id="fragment-shader" type="x-shader/x-fragment">
+		precision mediump float;
+
+		void main()
+		{
+			gl_FragColor=vec4(0.0, 0.0, 1.0, 1.0);
+		}
+	</script>
+	<script id="fragment-shader-random" type="x-shader/x-fragment">
+		precision mediump float;
+		uniform vec4 u_color;
+
+		void main()
+		{
+			gl_FragColor=u_color;
+		}
+	</script>
+
+	<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+	<script type="text/javascript" src="../Common/initShaders.js"></script>
+	<script type="text/javascript" src="../Common/MV.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+
+	<h1>My first WebGL program</h1>
+	<h2>2D Poligono</h2>
+	<canvas id="gl-canvas" width="512" height="512" style="border:2px solid orange;">
+		Oops... Browser does not support HTML 5 element Canvas
+	</canvas><br>
+	<label for="x0">x Center:</label>
+	<input type="text" id="centerX" value="0.0"><br>
+	<label for="y0">y Center:</label>
+	<input type="text" id="centerY" value="0.0"><br>
+	<label for="radius">Radius:</label>
+	<input type="text" id="radius" value="0.5"><br>
+	<label for="vertexNumber">Vertex Number:</label>
+	<input type="text" id="numOfVer" value="5"><br>
+	<button id="create">Draw</button>	
+</body>
+
+
+
+
+</html>
